@@ -1,8 +1,10 @@
 @import "../variables/colors";
+@import "../variables/fonts";
+@import "../utilities/mixins";
 
 .hero {
   position: relative;
-  height: 190px;
+  height: 41.5vw;
   background-color: rgba($color: $primaryColor_BandSite-Black, $alpha: 0.5);
 
   display: flex;
@@ -26,5 +28,15 @@
 
   &__text {
     color: white;
+
+    font-size: $fontSize_pageHeader_DesktopTablet;
+    line-height: $lineHeight_pageHeader_DesktopTablet;
+    font-weight: $textWeight_pageHeader_DesktopTablet;
+
+    @include mobile {
+      font-size: $fontSize_pageHeader_Mobile;
+      line-height: $lineHeight_pageHeader_Mobile;
+      font-weight: $textWeight_pageHeader_Mobile;
+    }
   }
 }

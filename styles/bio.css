@@ -245,9 +245,19 @@ body {
   position: relative;
 }
 
+@font-face {
+  font-family: "Avenir Next LT Pro";
+  src: url("/assets/fonts/AvenirNextLTPro-Regular.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: "Avenir Next LT Pro", sans-serif;
+}
+
 .hero {
   position: relative;
-  height: 190px;
+  height: 41.5vw;
   background-color: rgba(50, 50, 50, 0.5);
   display: flex;
   align-items: center;
@@ -266,6 +276,16 @@ body {
 }
 .hero__text {
   color: white;
+  font-size: 60px;
+  line-height: 68px;
+  font-weight: 700;
+}
+@media (max-width: 767px) {
+  .hero__text {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+  }
 }
 
 @font-face {
