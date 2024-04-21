@@ -1,0 +1,30 @@
+@import "../variables/colors";
+
+.hero {
+  position: relative;
+  height: 190px;
+  background-color: rgba($color: $primaryColor_BandSite-Black, $alpha: 0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: url("/assets/images/hero-bio.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    z-index: -2;
+  }
+
+  &__text {
+    color: white;
+  }
+}
