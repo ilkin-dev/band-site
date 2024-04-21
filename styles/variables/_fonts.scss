@@ -1,0 +1,72 @@
+@import "../utilities/mixins";
+
+@font-face {
+  font-family: "Avenir Next LT Pro";
+  src: url("/assets/fonts/AvenirNextLTPro-Regular.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Avenir Next LT Pro", sans-serif;
+}
+
+// Page Header Font Style
+$fontSize_pageHeader_DesktopTablet: 60px;
+$fontSize_pageHeader_Mobile: 24px;
+
+$lineHeight_pageHeader_DesktopTablet: 68px;
+$lineHeight_pageHeader_Mobile: 32px;
+
+$textWeight_pageHeader_DesktopTablet: 700;
+$textWeight_pageHeader_Mobile: 700;
+
+// Section Header Font Style
+$fontSize_sectionHeader_DesktopTablet: 36px;
+$fontSize_sectionHeader_Mobile: 24px;
+
+$lineHeight_sectionHeader_DesktopTablet: 44px;
+$lineHeight_sectionHeader_Mobile: 32px;
+
+$textWeight_sectionHeader_DesktopTablet: 700;
+$textWeight_sectionHeader_Mobile: 700;
+
+// Subheader Font Style
+$fontSize_subheader_DesktopTablet: 24px;
+$fontSize_subheader_Mobile: 14px;
+
+$lineHeight_subheader_DesktopTablet: 32px;
+$lineHeight_subheader_Mobile: 22px;
+
+$textWeight_subheader_DesktopTablet: 600;
+$textWeight_subheader_Mobile: 600;
+
+// Body Copy Font Style
+$fontSize_bodyCopy_DesktopTablet: 14px;
+$fontSize_bodyCopy_Mobile: 13px;
+
+$lineHeight_bodyCopy_DesktopTablet: 22px;
+$lineHeight_bodyCopy_Mobile: 18px;
+
+$textWeight_bodyCopy_DesktopTablet: 400;
+$textWeight_bodyCopy_Mobile: 400;
+
+// Footer Copy Font Style
+$fontSize_bodyCopy_DesktopTablet: 14px;
+$fontSize_bodyCopy_Mobile: 13px;
+
+$lineHeight_bodyCopy_DesktopTablet: 20px;
+$lineHeight_bodyCopy_Mobile: 18px;
+
+$textWeight_bodyCopy_DesktopTablet: 400;
+$textWeight_bodyCopy_Mobile: 400;
+
+// Labels & Buttons Font Style
+$fontSize_labelsButtons_DesktopTablet: 12px;
+$fontSize_labelsButtons_Mobile: 10px;
+
+$lineHeight_labelsButtons_DesktopTablet: 20px;
+$lineHeight_labelsButtons_Mobile: 20px;
+
+$textWeight_labelsButtons_DesktopTablet: 700;
+$textWeight_labelsButtons_Mobile: 700;

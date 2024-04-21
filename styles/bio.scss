@@ -1,9 +1,14 @@
 @import "base/reset";
 @import "base/typography";
+@import "base/helpers";
 
+@import "components/buttons";
 @import "components/navbar";
 
 @import "layout/footer";
 @import "layout/hero";
 
-@import "utilities/variables";
+@import "variables/colors";
+@import "variables/fonts";
+@import "variables/dimensions";
+@import "variables/sizes";

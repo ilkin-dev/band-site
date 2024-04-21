@@ -1,0 +1,11 @@
+@import "../utilities/mixins";
+
+.section {
+  padding-left: 8.2rem;
+  padding-right: 8.2rem;
+
+  @include tablet {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
