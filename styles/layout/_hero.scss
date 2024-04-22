@@ -11,6 +11,8 @@
   align-items: center;
   justify-content: flex-start;
 
+  margin-bottom: $margin_betweenSectionsDesktopTablet;
+
   &__bg {
     position: absolute;
     top: 0;

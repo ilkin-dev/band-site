@@ -1,0 +1,48 @@
+@import "../utilities/mixins";
+@import "../variables/colors";
+@import "../variables/fonts";
+@import "../variables/sizes";
+@import "../variables/dimensions";
+
+.about {
+  margin-bottom: $margin_betweenSectionsDesktopTablet;
+
+  &__title {
+    font-size: $fontSize_sectionHeader_DesktopTablet;
+    line-height: $lineHeight_sectionHeader_DesktopTablet;
+    font-weight: $textWeight_sectionHeader_DesktopTablet;
+
+    @include mobile {
+      font-size: $fontSize_sectionHeader_Mobile;
+      line-height: $lineHeight_sectionHeader_Mobile;
+      font-weight: $textWeight_sectionHeader_Mobile;
+    }
+  }
+
+  &__bg {
+    max-width: 100%;
+    height: auto;
+
+    margin: 2rem 0;
+
+    @include mobile {
+      margin: 0.5rem 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0 6rem;
+
+    @include tablet {
+      margin: 0 3.75rem;
+    }
+
+    @include mobile {
+      margin: 0;
+    }
+  }
+}
