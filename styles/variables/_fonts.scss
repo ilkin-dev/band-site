@@ -84,3 +84,15 @@ $lineHeight_labelsButtons_Mobile: 20px;
 
 $textWeight_labelsButtons_DesktopTablet: 700;
 $textWeight_labelsButtons_Mobile: 700;
+
+@mixin sectionHeaderText {
+  font-size: $fontSize_sectionHeader_DesktopTablet;
+  line-height: $lineHeight_sectionHeader_DesktopTablet;
+  font-weight: $textWeight_sectionHeader_DesktopTablet;
+
+  @include mobile {
+    font-size: $fontSize_sectionHeader_Mobile;
+    line-height: $lineHeight_sectionHeader_Mobile;
+    font-weight: $textWeight_sectionHeader_Mobile;
+  }
+}
