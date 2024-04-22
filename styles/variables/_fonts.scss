@@ -66,14 +66,14 @@ $textWeight_bodyCopy_DesktopTablet: 400;
 $textWeight_bodyCopy_Mobile: 400;
 
 // Footer Copy Font Style
-$fontSize_bodyCopy_DesktopTablet: 14px;
-$fontSize_bodyCopy_Mobile: 13px;
+$fontSize_footerCopy_DesktopTablet: 14px;
+$fontSize_footerCopy_Mobile: 13px;
 
-$lineHeight_bodyCopy_DesktopTablet: 20px;
-$lineHeight_bodyCopy_Mobile: 18px;
+$lineHeight_footerCopy_DesktopTablet: 20px;
+$lineHeight_footerCopy_Mobile: 18px;
 
-$textWeight_bodyCopy_DesktopTablet: 400;
-$textWeight_bodyCopy_Mobile: 400;
+$textWeight_footerCopy_DesktopTablet: 400;
+$textWeight_footerCopy_Mobile: 400;
 
 // Labels & Buttons Font Style
 $fontSize_labelsButtons_DesktopTablet: 12px;
@@ -94,5 +94,17 @@ $textWeight_labelsButtons_Mobile: 700;
     font-size: $fontSize_sectionHeader_Mobile;
     line-height: $lineHeight_sectionHeader_Mobile;
     font-weight: $textWeight_sectionHeader_Mobile;
+  }
+}
+
+@mixin footerCopyText {
+  font-size: $fontSize_footerCopy_DesktopTablet;
+  line-height: $lineHeight_footerCopy_DesktopTablet;
+  font-weight: $textWeight_footerCopy_DesktopTablet;
+
+  @include mobile {
+    font-size: $fontSize_footerCopy_Mobile;
+    line-height: $lineHeight_footerCopy_Mobile;
+    font-weight: $textWeight_footerCopy_Mobile;
   }
 }
