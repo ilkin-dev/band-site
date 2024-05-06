@@ -108,3 +108,15 @@ $textWeight_labelsButtons_Mobile: 700;
     font-weight: $textWeight_footerCopy_Mobile;
   }
 }
+
+@mixin labelAndInputText {
+  font-size: $fontSize_labelsButtons_DesktopTablet;
+  line-height: $lineHeight_labelsButtons_DesktopTablet;
+  font-weight: $textWeight_labelsButtons_DesktopTablet;
+
+  @include mobile {
+    font-size: $fontSize_labelsButtons_Mobile;
+    line-height: $lineHeight_labelsButtons_Mobile;
+    font-weight: $textWeight_labelsButtons_Mobile;
+  }
+}
