@@ -101,17 +101,45 @@
         </div>
       </div>
     </section>
-    <section class="comments secion">
-      <form id="commentsForm">
-        <div class="commentsForm__left">
-          <img
-            class="commentsForm__avatar"
-            src="assets\images\Mohan-muruge.jpg"
-            alt="form_avatar"
-          />
+    <section class="comments section">
+      <h2 class="comments__title">Join the Conversation</h2>
+
+      <div class="comments__form">
+        <div class="comments__form-avatar">
+          <img src="assets\images\Mohan-muruge.jpg" alt="form_avatar" />
         </div>
-        <div class="commentsForm__right"></div>
-      </form>
+        <form id="commentsForm">
+          <div class="labelAndInputContainer">
+            <label class="commentsForm__name-label form-label" for="name"
+              >Name</label
+            >
+            <input
+              class="commentsForm__name-input form-input"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              required
+            />
+          </div>
+          <div class="labelAndInputContainer">
+            <label class="commentsForm__comment-label form-label" for="comment"
+              >Comment</label
+            >
+            <textarea
+              class="commentsForm__comment-input form-input"
+              id="comment"
+              name="comment"
+              placeholder="Add a new comment"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+
+          <input type="submit" value="COMMENT" />
+        </form>
+      </div>
+      <div class="comments__list"></div>
     </section>
     <footer class="footer section">
       <div class="footer__topPart">
