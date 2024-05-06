@@ -1,0 +1,54 @@
+@import "../utilities/mixins";
+@import "../variables/colors";
+@import "../variables/fonts";
+@import "../variables/dimensions";
+
+.comments__title {
+  @include sectionHeaderText;
+}
+
+.comments__form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+
+  &-avatar {
+    margin-right: 32px;
+
+    width: 48px;
+    height: 48px;
+
+    @include mobile {
+      width: 36px;
+      height: 36px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+    }
+  }
+
+  &-avatarAndName {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.labelAndInputContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#commentsForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
