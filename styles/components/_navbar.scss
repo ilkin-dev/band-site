@@ -35,9 +35,6 @@
   &__logo {
     padding-right: 64px;
 
-    @include tablet {
-    }
-
     @include mobile {
       padding: 10px 0 10px 0;
     }
