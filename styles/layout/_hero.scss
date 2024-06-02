@@ -8,8 +8,9 @@
   background-color: rgba($color: $primaryColor_BandSite-Black, $alpha: 0.5);
 
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 
   margin-bottom: $margin_betweenSectionsDesktopTablet;
 
@@ -31,14 +32,12 @@
   &__text {
     color: white;
 
-    font-size: $fontSize_pageHeader_DesktopTablet;
-    line-height: $lineHeight_pageHeader_DesktopTablet;
-    font-weight: $textWeight_pageHeader_DesktopTablet;
+    @include pageHeaderText;
+  }
 
-    @include mobile {
-      font-size: $fontSize_pageHeader_Mobile;
-      line-height: $lineHeight_pageHeader_Mobile;
-      font-weight: $textWeight_pageHeader_Mobile;
-    }
+  &__subText {
+    color: white;
+
+    @include subheaderText;
   }
 }

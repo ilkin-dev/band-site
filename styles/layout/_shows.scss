@@ -1,0 +1,15 @@
+.hero {
+  height: 50vw;
+
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+
+  &__subText {
+    margin-bottom: 32px;
+  }
+
+  &__bg {
+    background-image: url("..//..//assets//images//hero-shows.jpg");
+  }
+}

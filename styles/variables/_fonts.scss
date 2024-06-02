@@ -95,6 +95,18 @@ $lineHeight_formLabel_Mobile: 20px;
 $textWeight_formLabel_DesktopTablet: 400;
 $textWeight_formLabel_Mobile: 400;
 
+@mixin pageHeaderText {
+  font-size: $fontSize_pageHeader_DesktopTablet;
+  line-height: $lineHeight_pageHeader_DesktopTablet;
+  font-weight: $textWeight_pageHeader_DesktopTablet;
+
+  @include mobile {
+    font-size: $fontSize_pageHeader_Mobile;
+    line-height: $lineHeight_pageHeader_Mobile;
+    font-weight: $textWeight_pageHeader_Mobile;
+  }
+}
+
 @mixin subheaderText {
   font-size: $fontSize_subheader_DesktopTablet;
   line-height: $lineHeight_subheader_DesktopTablet;
