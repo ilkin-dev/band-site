@@ -1,0 +1,5 @@
+@import "../variables/fonts";
+
+.sectionTitle {
+  @include sectionHeaderText;
+}

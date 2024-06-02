@@ -2,6 +2,7 @@
 @import "../variables/colors";
 @import "../variables/fonts";
 @import "../variables/dimensions";
+@import "../components/buttons";
 
 .comments__title {
   @include sectionHeaderText;
@@ -90,24 +91,6 @@
   justify-content: flex-end;
 }
 
-.formSubmitButton {
-  background-color: $primaryColor_BandSite-Black;
-  padding: 0px 32px;
-
-  @include mobile {
-    padding: 0px;
-    width: 100%;
-  }
-  color: white;
-  border: 0px;
-  border-radius: 4px;
-  height: 100%;
-
-  :hover {
-    background-color: $secondaryColor_BandSite-DarkBlack;
-  }
-}
-
 .comments__list {
   display: flex;
   align-items: center;
@@ -123,6 +106,7 @@
   align-items: start;
 
   margin-bottom: 16px;
+  margin-top: 32px;
 
   &__author {
     font-weight: 600;

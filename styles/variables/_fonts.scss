@@ -76,11 +76,11 @@ $textWeight_footerCopy_DesktopTablet: 400;
 $textWeight_footerCopy_Mobile: 400;
 
 // Labels & Buttons Font Style
-$fontSize_labelsButtons_DesktopTablet: 12px;
-$fontSize_labelsButtons_Mobile: 10px;
+$fontSize_labelsButtons_DesktopTablet: 15px;
+$fontSize_labelsButtons_Mobile: 13px;
 
-$lineHeight_labelsButtons_DesktopTablet: 20px;
-$lineHeight_labelsButtons_Mobile: 20px;
+$lineHeight_labelsButtons_DesktopTablet: 25px;
+$lineHeight_labelsButtons_Mobile: 25px;
 
 $textWeight_labelsButtons_DesktopTablet: 700;
 $textWeight_labelsButtons_Mobile: 700;
@@ -176,5 +176,17 @@ $textWeight_formLabel_Mobile: 400;
     font-size: $fontSize_formLabelAndInput_Mobile;
     line-height: $lineHeight_formLabelAndInput_Mobile;
     font-weight: $textWeight_formLabelAndInput_Mobile;
+  }
+}
+
+@mixin labelsButtonsText {
+  font-size: $fontSize_labelsButtons_DesktopTablet;
+  line-height: $lineHeight_labelsButtons_DesktopTablet;
+  font-weight: $textWeight_labelsButtons_DesktopTablet;
+
+  @include mobile {
+    font-size: $fontSize_labelsButtons_Mobile;
+    line-height: $lineHeight_labelsButtons_Mobile;
+    font-weight: $textWeight_labelsButtons_Mobile;
   }
 }

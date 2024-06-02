@@ -189,6 +189,58 @@ body {
   font-family: "Avenir Next LT Pro", sans-serif;
 }
 
+.blackButton {
+  white-space: nowrap;
+  background-color: #323232;
+  height: 40px;
+  padding: 0px 32px;
+  font-size: 15px;
+  line-height: 25px;
+  font-weight: 700;
+  color: white;
+  border: 0px;
+  border-radius: 4px;
+  height: 100%;
+}
+@media (max-width: 767px) {
+  .blackButton {
+    font-size: 13px;
+    line-height: 25px;
+    font-weight: 700;
+  }
+}
+@media (max-width: 767px) {
+  .blackButton {
+    padding: 0px;
+    width: 100%;
+  }
+}
+.blackButton:hover {
+  background-color: #000000;
+}
+
+@font-face {
+  font-family: "Avenir Next LT Pro";
+  src: url("/assets/fonts/AvenirNextLTPro-Regular.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir Next LT Pro";
+  src: url("/assets/fonts/AvenirNextLTPro-Demi.otf") format("otf");
+  font-weight: 600;
+  font-style: oblique;
+}
+@font-face {
+  font-family: "Avenir Next LT Pro";
+  src: url("/assets/fonts/AvenirNextLTPro-Bold.otf") format("otf");
+  font-weight: 700;
+  font-style: normal;
+}
+body {
+  font-family: "Avenir Next LT Pro", sans-serif;
+}
+
 .nav {
   display: flex;
   flex-direction: row;
@@ -287,7 +339,41 @@ body {
 .divider {
   width: 100%;
   border-top: 1px solid #e1e1e1;
-  margin-bottom: 32px;
+}
+
+@font-face {
+  font-family: "Avenir Next LT Pro";
+  src: url("/assets/fonts/AvenirNextLTPro-Regular.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir Next LT Pro";
+  src: url("/assets/fonts/AvenirNextLTPro-Demi.otf") format("otf");
+  font-weight: 600;
+  font-style: oblique;
+}
+@font-face {
+  font-family: "Avenir Next LT Pro";
+  src: url("/assets/fonts/AvenirNextLTPro-Bold.otf") format("otf");
+  font-weight: 700;
+  font-style: normal;
+}
+body {
+  font-family: "Avenir Next LT Pro", sans-serif;
+}
+
+.sectionTitle {
+  font-size: 36px;
+  line-height: 44px;
+  font-weight: 700;
+}
+@media (max-width: 767px) {
+  .sectionTitle {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+  }
 }
 
 @font-face {
@@ -529,18 +615,6 @@ body {
 .about {
   margin-bottom: 48px;
 }
-.about__title {
-  font-size: 36px;
-  line-height: 44px;
-  font-weight: 700;
-}
-@media (max-width: 767px) {
-  .about__title {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 700;
-  }
-}
 .about__bg {
   max-width: 100%;
   height: auto;
@@ -718,6 +792,58 @@ body {
   font-family: "Avenir Next LT Pro", sans-serif;
 }
 
+@font-face {
+  font-family: "Avenir Next LT Pro";
+  src: url("/assets/fonts/AvenirNextLTPro-Regular.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir Next LT Pro";
+  src: url("/assets/fonts/AvenirNextLTPro-Demi.otf") format("otf");
+  font-weight: 600;
+  font-style: oblique;
+}
+@font-face {
+  font-family: "Avenir Next LT Pro";
+  src: url("/assets/fonts/AvenirNextLTPro-Bold.otf") format("otf");
+  font-weight: 700;
+  font-style: normal;
+}
+body {
+  font-family: "Avenir Next LT Pro", sans-serif;
+}
+
+.blackButton {
+  white-space: nowrap;
+  background-color: #323232;
+  height: 40px;
+  padding: 0px 32px;
+  font-size: 15px;
+  line-height: 25px;
+  font-weight: 700;
+  color: white;
+  border: 0px;
+  border-radius: 4px;
+  height: 100%;
+}
+@media (max-width: 767px) {
+  .blackButton {
+    font-size: 13px;
+    line-height: 25px;
+    font-weight: 700;
+  }
+}
+@media (max-width: 767px) {
+  .blackButton {
+    padding: 0px;
+    width: 100%;
+  }
+}
+.blackButton:hover {
+  background-color: #000000;
+}
+
 .comments__title {
   font-size: 36px;
   line-height: 44px;
@@ -833,24 +959,6 @@ body {
   justify-content: flex-end;
 }
 
-.formSubmitButton {
-  background-color: #323232;
-  padding: 0px 32px;
-  color: white;
-  border: 0px;
-  border-radius: 4px;
-  height: 100%;
-}
-@media (max-width: 767px) {
-  .formSubmitButton {
-    padding: 0px;
-    width: 100%;
-  }
-}
-.formSubmitButton :hover {
-  background-color: #000000;
-}
-
 .comments__list {
   display: flex;
   align-items: center;
@@ -865,6 +973,7 @@ body {
   justify-items: flex-start;
   align-items: start;
   margin-bottom: 16px;
+  margin-top: 32px;
 }
 .comment__author {
   font-weight: 600;

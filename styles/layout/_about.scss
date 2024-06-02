@@ -6,10 +6,6 @@
 .about {
   margin-bottom: $margin_betweenSectionsDesktopTablet;
 
-  &__title {
-    @include sectionHeaderText;
-  }
-
   &__bg {
     max-width: 100%;
     height: auto;

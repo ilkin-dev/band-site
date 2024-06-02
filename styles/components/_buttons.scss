@@ -1,3 +1,6 @@
+@import "../variables/colors";
+@import "../variables/fonts";
+
 $button_height: 40px;
 
 // Desktop & Tablet
@@ -6,3 +9,26 @@ $button_minWidth: 150px;
 $button_minHorizontalPadding: 32px;
 
 $button_radius: 4px;
+
+.blackButton {
+  white-space: nowrap;
+
+  background-color: $primaryColor_BandSite-Black;
+  height: $button_height;
+  padding: 0px 32px;
+
+  @include labelsButtonsText;
+
+  @include mobile {
+    padding: 0px;
+    width: 100%;
+  }
+  color: white;
+  border: 0px;
+  border-radius: 4px;
+  height: 100%;
+
+  &:hover {
+    background-color: $secondaryColor_BandSite-DarkBlack;
+  }
+}

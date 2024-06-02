@@ -1,9 +1,24 @@
+@import "../utilities/mixins";
+@import "../variables/colors";
+@import "../variables/fonts";
+@import "../components/buttons";
+@import "../components/divider";
+
 .hero {
   height: 50vw;
 
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: row;
+
+  @include mobile {
+    height: 75vh;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    margin-bottom: 0;
+  }
 
   &__subText {
     margin-bottom: 32px;
@@ -11,5 +26,146 @@
 
   &__bg {
     background-image: url("..//..//assets//images//hero-shows.jpg");
+  }
+}
+
+.hero__soundCloudSection {
+  width: 300px;
+  height: 166px;
+
+  @include mobile {
+    width: 100%;
+    margin-bottom: 32px;
+    margin-top: 32px;
+  }
+}
+
+.shows {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: center;
+
+  @include tablet {
+    flex-direction: column;
+  }
+
+  @include mobile {
+    flex-direction: column;
+  }
+
+  &__table {
+    display: block;
+
+    height: auto;
+
+    display: table;
+    border-spacing: 0px;
+    margin-left: 10rem;
+
+    @include tablet {
+      margin-left: 0;
+    }
+
+    @include mobile {
+      margin-left: 0;
+      display: none;
+    }
+  }
+
+  &__headerRow {
+    &-item {
+      color: $primaryColor_Silver;
+      @include bodyCopyText;
+      text-align: start;
+    }
+  }
+
+  &__dataRow {
+    &-item {
+      height: auto;
+
+      padding-right: 32px;
+
+      @include tablet {
+        padding-right: 24px;
+      }
+    }
+
+    &-buttonContainer {
+      display: flex;
+      text-align: center;
+      line-height: 65px;
+      height: 40px;
+      margin: 32px 0px;
+    }
+  }
+
+  &__dataRow:hover {
+    background-color: $secondaryColor_Mercury;
+  }
+
+  &__dataRow:focus {
+    background-color: $secondaryColor_Alabaster;
+  }
+}
+
+.date {
+  font-weight: bold;
+  padding-right: 64px;
+
+  @include tablet {
+    padding-right: 64px;
+  }
+
+  @include mobile {
+    padding-right: 32px;
+  }
+}
+
+td,
+th {
+  vertical-align: middle;
+  padding: 24px 18px;
+
+  @include mobile {
+    padding: 16px;
+  }
+
+  white-space: nowrap;
+}
+
+.divider {
+  padding: 0;
+}
+
+// MOBILE VERSION
+
+.shows__table--mobile {
+  display: none;
+
+  @include mobile {
+    display: block;
+  }
+
+  width: 100%;
+}
+
+.show {
+  &__container {
+    margin: 16px 0;
+  }
+
+  &__detailContainer {
+    padding-bottom: 16px;
+  }
+
+  &__detailLabel {
+    color: $primaryColor_Silver;
+    margin-bottom: 8px;
+  }
+
+  &__buttonContainer {
+    height: 40px;
   }
 }
