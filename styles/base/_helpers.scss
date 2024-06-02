@@ -19,16 +19,3 @@
     padding-right: 1rem;
   }
 }
-
-.form-label {
-  @include labelAndInputText;
-  color: $primaryColor_Silver;
-  padding-bottom: 4px;
-}
-
-.form-input {
-  width: 100%;
-  border-radius: 4px;
-  resize: none;
-  @include labelAndInputText;
-}

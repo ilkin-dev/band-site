@@ -94,6 +94,8 @@
   &__paragraph {
     padding-right: 32px;
 
+    @include bodyCopyText;
+
     @include mobile {
       padding-right: 0;
       padding-bottom: 32px;

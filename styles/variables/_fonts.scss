@@ -85,6 +85,28 @@ $lineHeight_labelsButtons_Mobile: 20px;
 $textWeight_labelsButtons_DesktopTablet: 700;
 $textWeight_labelsButtons_Mobile: 700;
 
+// Form Label Font Style
+$fontSize_formLabel_DesktopTablet: 12px;
+$fontSize_formLabel_Mobile: 10px;
+
+$lineHeight_formLabel_DesktopTablet: 20px;
+$lineHeight_formLabel_Mobile: 20px;
+
+$textWeight_formLabel_DesktopTablet: 400;
+$textWeight_formLabel_Mobile: 400;
+
+@mixin subheaderText {
+  font-size: $fontSize_subheader_DesktopTablet;
+  line-height: $lineHeight_subheader_DesktopTablet;
+  font-weight: $textWeight_subheader_DesktopTablet;
+
+  @include mobile {
+    font-size: $fontSize_subheader_Mobile;
+    line-height: $lineHeight_subheader_Mobile;
+    font-weight: $textWeight_subheader_Mobile;
+  }
+}
+
 @mixin sectionHeaderText {
   font-size: $fontSize_sectionHeader_DesktopTablet;
   line-height: $lineHeight_sectionHeader_DesktopTablet;
@@ -94,6 +116,18 @@ $textWeight_labelsButtons_Mobile: 700;
     font-size: $fontSize_sectionHeader_Mobile;
     line-height: $lineHeight_sectionHeader_Mobile;
     font-weight: $textWeight_sectionHeader_Mobile;
+  }
+}
+
+@mixin bodyCopyText {
+  font-size: $fontSize_bodyCopy_DesktopTablet;
+  line-height: $lineHeight_bodyCopy_DesktopTablet;
+  font-weight: $textWeight_bodyCopy_DesktopTablet;
+
+  @include mobile {
+    font-size: $fontSize_bodyCopy_Mobile;
+    line-height: $lineHeight_bodyCopy_Mobile;
+    font-weight: $textWeight_bodyCopy_Mobile;
   }
 }
 
@@ -109,7 +143,7 @@ $textWeight_labelsButtons_Mobile: 700;
   }
 }
 
-@mixin labelAndInputText {
+@mixin commentLabelText {
   font-size: $fontSize_labelsButtons_DesktopTablet;
   line-height: $lineHeight_labelsButtons_DesktopTablet;
   font-weight: $textWeight_labelsButtons_DesktopTablet;
@@ -118,5 +152,17 @@ $textWeight_labelsButtons_Mobile: 700;
     font-size: $fontSize_labelsButtons_Mobile;
     line-height: $lineHeight_labelsButtons_Mobile;
     font-weight: $textWeight_labelsButtons_Mobile;
+  }
+}
+
+@mixin formLabelAndInputText {
+  font-size: $fontSize_formLabelAndInput_DesktopTablet;
+  line-height: $lineHeight_formLabelAndInput_DesktopTablet;
+  font-weight: $textWeight_formLabelAndInput_DesktopTablet;
+
+  @include mobile {
+    font-size: $fontSize_formLabelAndInput_Mobile;
+    line-height: $lineHeight_formLabelAndInput_Mobile;
+    font-weight: $textWeight_formLabelAndInput_Mobile;
   }
 }
