@@ -5,7 +5,7 @@ class Comment {
     }
 }
 
-const dataArray = [
+let dataArray = [
     new Comment("John", "This is a comment from John."),
     new Comment("Bob", "This is a comment from Bob."),
     new Comment("Ashley", "This is a comment from Ashley."),
@@ -75,6 +75,8 @@ function addNewComment(commentsList, comment) {
     details.append(content);
     authorAndDateContainer.append(author);
     authorAndDateContainer.append(date);
+
+    dataArray.push(comment);
 
     clearInputFields(inputFields);
 }
