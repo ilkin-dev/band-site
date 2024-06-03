@@ -1,3 +1,5 @@
+import { BandSiteApi } from './band-site-api';
+
 class Comment {
     constructor(nameText, commentText) {
         this.nameText = nameText;
@@ -20,19 +22,31 @@ const commentInput = document.getElementById("comment");
 
 const inputFields = [nameInput, commentInput];
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
+    const apiKey = await register();
+    const bandSiteApi = new BandSiteApi(apiKey);
 
-    addPredefinedArraysToList();
+    await addPredefinedArraysToList(bandSiteApi);
 
-    form.addEventListener("submit", function (event) {
+    form.addEventListener("submit", async function (event) {
 
         event.preventDefault();
-
-        let newComment = new Comment(nameInput.value, commentInput.value);
-
-        addNewComment(commentsList, newComment);
+        const newComment = new Comment(nameInput.value, commentInput.value);
+        await postComment(bandSiteApi, newComment);
+        await addNewComment(newComment);
     });
 });
+
+async function register() {
+    try {
+        const response = await fetch('https://unit-2-project-api-25c1595833b2.herokuapp.com/register');
+        const data = await response.json();
+        return data.api_key;
+    } catch (error) {
+        console.error('Error registering with the API:', error);
+        throw error;
+    }
+}
 
 function addNewComment(commentsList, comment) {
 
@@ -93,10 +107,24 @@ function getFormattedTodayDate() {
     return formattedDate;
 }
 
-function addPredefinedArraysToList() {
-    dataArray.forEach(comment => {
-        addNewComment(commentsList, comment);
-    })
+async function addPredefinedArraysToList(api) {
+    try {
+        const comments = await api.getComments();
+        comments.forEach(comment => {
+            addNewComment(comment);
+        });
+    } catch (error) {
+        console.error('Error fetching comments:', error);
+    }
+}
+
+async function postComment(api, comment) {
+    try {
+        const response = await api.postComment(comment);
+        console.log('Posted comment:', response);
+    } catch (error) {
+        console.error('Error posting comment:', error);
+    }
 }
 
 function clearInputFields(inputs) {
@@ -104,5 +132,3 @@ function clearInputFields(inputs) {
         inputField.value = "";
     });
 }
-
-
