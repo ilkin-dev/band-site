@@ -1,7 +1,14 @@
+class Comment {
+    constructor(nameText, commentText) {
+        this.nameText = nameText;
+        this.commentText = commentText;
+    }
+}
+
 const dataArray = [
-    { nameText: "John", commentText: "This is a comment from John." },
-    { nameText: "Alice", commentText: "This is a comment from Alice." },
-    { nameText: "Bob", commentText: "This is a comment from Bob." }
+    new Comment("John", "This is a comment from John."),
+    new Comment("Bob", "This is a comment from Bob."),
+    new Comment("Ashley", "This is a comment from Ashley."),
 ];
 
 const form = document.getElementById("commentsForm");
@@ -11,6 +18,8 @@ const commentsList = document.getElementsByClassName("comments__list")[0];
 const nameInput = document.getElementById("name");
 const commentInput = document.getElementById("comment");
 
+const inputFields = [nameInput, commentInput];
+
 document.addEventListener("DOMContentLoaded", function () {
 
     addPredefinedArraysToList();
@@ -19,11 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         event.preventDefault();
 
-        addNewComment(commentsList, nameInput.value, commentInput.value);
+        let newComment = new Comment(nameInput.value, commentInput.value);
+
+        addNewComment(commentsList, newComment);
     });
 });
 
-function addNewComment(commentsList, nameText, commentText) {
+function addNewComment(commentsList, comment) {
 
     let newCommentContainer = document.createElement("div");
     newCommentContainer.className = "comment__container";
@@ -45,7 +56,7 @@ function addNewComment(commentsList, nameText, commentText) {
 
     let author = document.createElement("div");
     author.className = "comment__author";
-    author.textContent = nameText;
+    author.textContent = comment.nameText;
 
     let date = document.createElement("div");
     date.className = "comment__date";
@@ -53,7 +64,7 @@ function addNewComment(commentsList, nameText, commentText) {
 
     let content = document.createElement("div");
     content.className = "comment__content";
-    content.textContent = commentText;
+    content.textContent = comment.commentText;
 
     commentsList.append(newCommentContainer);
     newCommentContainer.append(divider);
@@ -65,8 +76,7 @@ function addNewComment(commentsList, nameText, commentText) {
     authorAndDateContainer.append(author);
     authorAndDateContainer.append(date);
 
-    nameInput.value = "";
-    commentInput.value = "";
+    clearInputFields(inputFields);
 }
 
 function getFormattedTodayDate() {
@@ -82,7 +92,15 @@ function getFormattedTodayDate() {
 }
 
 function addPredefinedArraysToList() {
-    dataArray.forEach(element => {
-        addNewComment(commentsList, element.nameText, element.commentText);
+    dataArray.forEach(comment => {
+        addNewComment(commentsList, comment);
     })
 }
+
+function clearInputFields(inputs) {
+    inputs.forEach(inputField => {
+        inputField.value = "";
+    });
+}
+
+
