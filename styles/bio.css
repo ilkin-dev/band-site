@@ -1022,7 +1022,7 @@ body {
   line-height: 22px;
   font-weight: 400;
   height: auto;
-  min-height: 100px;
+  min-height: 60px;
   resize: none;
   overflow: auto;
   word-wrap: break-word;
