@@ -981,11 +981,15 @@ body {
 .comment__date {
   color: #afafaf;
 }
+.comment__details {
+  width: 100%;
+}
 .comment__authorAndDateContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 .comment__container {
   width: 50%;
@@ -1017,6 +1021,11 @@ body {
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
+  height: auto;
+  min-height: 100px;
+  resize: none;
+  overflow: auto;
+  word-wrap: break-word;
 }
 @media (max-width: 767px) {
   .comment__content {
