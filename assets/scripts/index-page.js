@@ -1,17 +1,14 @@
-import { BandSiteApi } from './band-site-api';
+import { BandSiteApi } from './band-site-api.js';
 
 class Comment {
-    constructor(nameText, commentText) {
-        this.nameText = nameText;
-        this.commentText = commentText;
+    constructor(comment, id, likes, name, timestamp) {
+        this.comment = comment;
+        this.id = id;
+        this.likes = likes;
+        this.name = name;
+        this.timestamp = timestamp;
     }
 }
-
-let dataArray = [
-    new Comment("John", "This is a comment from John."),
-    new Comment("Bob", "This is a comment from Bob."),
-    new Comment("Ashley", "This is a comment from Ashley."),
-];
 
 const form = document.getElementById("commentsForm");
 
@@ -31,9 +28,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     form.addEventListener("submit", async function (event) {
 
         event.preventDefault();
-        const newComment = new Comment(nameInput.value, commentInput.value);
+        const newComment = new Comment(commentInput.value, Math.random() * 1000000, 0, nameInput.value, Date.now());
         await postComment(bandSiteApi, newComment);
-        await addNewComment(newComment);
+        await addNewComment(commentsList, newComment);
     });
 });
 
@@ -49,6 +46,8 @@ async function register() {
 }
 
 function addNewComment(commentsList, comment) {
+
+    console.log(comment);
 
     let newCommentContainer = document.createElement("div");
     newCommentContainer.className = "comment__container";
@@ -70,15 +69,15 @@ function addNewComment(commentsList, comment) {
 
     let author = document.createElement("div");
     author.className = "comment__author";
-    author.textContent = comment.nameText;
+    author.textContent = comment.name;
 
     let date = document.createElement("div");
     date.className = "comment__date";
-    date.textContent = getFormattedTodayDate();
+    date.textContent = getFormattedDate(comment.timestamp);
 
     let content = document.createElement("div");
     content.className = "comment__content";
-    content.textContent = comment.commentText;
+    content.textContent = comment.comment;
 
     commentsList.append(newCommentContainer);
     newCommentContainer.append(divider);
@@ -90,17 +89,16 @@ function addNewComment(commentsList, comment) {
     authorAndDateContainer.append(author);
     authorAndDateContainer.append(date);
 
-    dataArray.push(comment);
 
     clearInputFields(inputFields);
 }
 
-function getFormattedTodayDate() {
-    const today = new Date();
+function getFormattedDate(timestamp) {
+    const date = new Date(timestamp);
 
-    const year = today.getFullYear();
-    const month = today.getMonth() + 1;
-    const day = today.getDate();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1; // Months are zero-indexed, so add 1
+    const day = date.getDate();
 
     const formattedDate = `${month < 10 ? '0' : ''}${month}/${day < 10 ? '0' : ''}${day}/${year}`;
 
@@ -109,9 +107,11 @@ function getFormattedTodayDate() {
 
 async function addPredefinedArraysToList(api) {
     try {
+        console.log(api);
         const comments = await api.getComments();
+        console.log(comments);
         comments.forEach(comment => {
-            addNewComment(comment);
+            addNewComment(commentsList, comment);
         });
     } catch (error) {
         console.error('Error fetching comments:', error);
@@ -120,7 +120,7 @@ async function addPredefinedArraysToList(api) {
 
 async function postComment(api, comment) {
     try {
-        const response = await api.postComment(comment);
+        const response = await api.postComment(comment.comment, comment.name);
         console.log('Posted comment:', response);
     } catch (error) {
         console.error('Error posting comment:', error);

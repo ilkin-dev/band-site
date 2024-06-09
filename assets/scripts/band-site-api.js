@@ -1,4 +1,4 @@
-import axios from 'axios';
+//import axios from 'axios';
 
 export class BandSiteApi {
     constructor(apiKey) {
@@ -36,9 +36,9 @@ export class BandSiteApi {
         }
     }
 
-    async postComment(comment) {
+    async postComment(comment, name) {
         try {
-            const response = await axios.post(`${this.baseUrl}/comments?api_key=${this.apiKey}`, comment, {
+            const response = await axios.post(`${this.baseUrl}/comments?api_key=${this.apiKey}`, { comment, name }, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
