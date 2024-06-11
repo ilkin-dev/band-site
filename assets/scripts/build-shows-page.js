@@ -1,21 +1,13 @@
-import { BandSiteApi } from './band-site-api';
+import { BandSiteApi } from './band-site-api.js';
 
 class Show {
-    constructor(date, place, location) {
+    constructor(id, date, place, location) {
+        this.id = id;
         this.date = date;
         this.place = place;
         this.location = location;
     }
 }
-
-let dataArray = [
-    new Show("Mon Sept 09 2024", "Ronald Lane", "San Francisco, CA"),
-    new Show("Tue Sept 17 2024", "Pier 3 East", "San Francisco, CA"),
-    new Show("Sat Oct 12 2024", "View Lounge", "San Francisco, CA"),
-    new Show("Sat Nov 16 2024", "Hyatt Agency", "San Francisco, CA"),
-    new Show("Fri Nov 29 2024", "Moscow Center", "San Francisco, CA"),
-    new Show("Wed Dec 18 2024", "Press Club", "San Francisco, CA"),
-]
 
 const table = document.getElementsByClassName("shows__table")[0];
 
@@ -23,17 +15,17 @@ const tableMobile = document.getElementsByClassName("shows__table--mobile")[0];
 
 document.addEventListener("DOMContentLoaded", async function () {
     try {
-        const apiKeyResponse = await registerWithBandSiteApi();
-        const apiKey = apiKeyResponse.api_key;
-
-        const bandSiteApi = new BandSiteApi(apiKey);
+        let bandSiteApi = new BandSiteApi("");
+        bandSiteApi.apiKey = await bandSiteApi.register();
 
         const showsData = await bandSiteApi.getShows();
+
+        console.log(showsData);
 
         showsData.forEach(show => {
             let elements = createShowLayout();
 
-            elements.date.textContent = show.date;
+            elements.date.textContent = getFormattedDate(show.date);
             elements.place.textContent = show.place;
             elements.location.textContent = show.location;
         });
@@ -41,14 +33,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.error('Error:', error);
     }
 });
-
-async function registerWithBandSiteApi() {
-    const response = await fetch('https://unit-2-project-api-25c1595833b2.herokuapp.com/register');
-    if (!response.ok) {
-        throw new Error('Failed to register with BandSite API');
-    }
-    return response.json();
-}
 
 function createShowLayout() {
     let date = "";
@@ -115,6 +99,7 @@ function createShowLayout() {
 
         let showDetailLabel1 = document.createElement("p");
         showDetailLabel1.className = "show__detailLabel";
+        showDetailLabel1.textContent = "DATE";
 
         date = document.createElement("p");
         date.className = "show__detail date";
@@ -124,6 +109,8 @@ function createShowLayout() {
 
         let showDetailLabel2 = document.createElement("p");
         showDetailLabel2.className = "show__detailLabel";
+        showDetailLabel2.textContent = "PLACE";
+
 
         place = document.createElement("p");
         place.className = "show__detail";
@@ -133,6 +120,7 @@ function createShowLayout() {
 
         let showDetailLabel3 = document.createElement("p");
         showDetailLabel3.className = "show__detailLabel";
+        showDetailLabel3.textContent = "LOCATION";
 
         location = document.createElement("p");
         location.className = "show__detail";
@@ -142,6 +130,7 @@ function createShowLayout() {
 
         let showButton = document.createElement("button");
         showButton.className = "blackButton";
+        showButton.textContent = "BUY TICKETS";
 
         let divider = document.createElement("div");
         divider.className = "divider";
@@ -153,15 +142,15 @@ function createShowLayout() {
         showDetailContainer1.append(date);
 
         showContainer.append(showDetailContainer2);
-        showDetailContainer1.append(showDetailLabel2);
-        showDetailContainer1.append(place);
+        showDetailContainer2.append(showDetailLabel2);
+        showDetailContainer2.append(place);
 
         showContainer.append(showDetailContainer3);
-        showDetailContainer1.append(showDetailLabel3);
-        showDetailContainer1.append(location);
+        showDetailContainer3.append(showDetailLabel3);
+        showDetailContainer3.append(location);
 
-        showContainer.append(buttonContainer);
-        buttonContainer.append(button);
+        showContainer.append(showButtonContainer);
+        showButtonContainer.append(showButton);
 
         tableMobile.append(divider);
     }
@@ -172,4 +161,18 @@ function createShowLayout() {
 
 function isMobileDevice() {
     return window.innerWidth <= 768;
+}
+
+function getFormattedDate(timestamp) {
+    const date = new Date(timestamp);
+
+    const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const monthsOfYear = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    const dayOfWeek = daysOfWeek[date.getUTCDay()];
+    const month = monthsOfYear[date.getUTCMonth()];
+    const day = String(date.getUTCDate()).padStart(2, '0');
+    const year = date.getUTCFullYear();
+
+    return `${dayOfWeek} ${month} ${day} ${year}`;
 }

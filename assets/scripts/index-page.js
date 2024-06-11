@@ -20,8 +20,8 @@ const commentInput = document.getElementById("comment");
 const inputFields = [nameInput, commentInput];
 
 document.addEventListener("DOMContentLoaded", async function () {
-    const apiKey = await register();
-    const bandSiteApi = new BandSiteApi(apiKey);
+    let bandSiteApi = new BandSiteApi("");
+    bandSiteApi.apiKey = await bandSiteApi.register();
 
     await addPredefinedArraysToList(bandSiteApi);
 
@@ -33,17 +33,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         await addNewComment(commentsList, newComment);
     });
 });
-
-async function register() {
-    try {
-        const response = await fetch('https://unit-2-project-api-25c1595833b2.herokuapp.com/register');
-        const data = await response.json();
-        return data.api_key;
-    } catch (error) {
-        console.error('Error registering with the API:', error);
-        throw error;
-    }
-}
 
 function addNewComment(commentsList, comment) {
 

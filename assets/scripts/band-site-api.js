@@ -26,12 +26,12 @@ export class BandSiteApi {
         }
     }
 
-    async getShowDates() {
+    async getShows() {
         try {
             const response = await axios.get(`${this.baseUrl}/showdates?api_key=${this.apiKey}`);
             return response.data;
         } catch (error) {
-            console.error('Error getting show dates:', error);
+            console.error('Error getting shows:', error);
             throw error;
         }
     }
